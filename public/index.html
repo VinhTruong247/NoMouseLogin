@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" autofocus onblur="checkUsername()"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" autofocus onblur="checkPassword()"><br><br>
+            <input type="button" id="btn" value="Login" onclick="login()">
+        </form>
+        <p id="error-message"></p>
+    </div>
+
+    <script>
+        function checkUsername() {
+            var username = document.getElementById("username").value;
+            if (username != "admin") {
+                document.getElementById("username").select();
+                document.getElementById("btn").disabled = true;
+                errorMessage.innerHTML = "Invalid Username";
+            } else {
+                document.getElementById("btn").disabled = false;
+                function checkPassword() {
+                    var password = document.getElementById("password").value;
+                    if (password != 123456) {
+                        document.getElementById("password").select();
+                        alert("Invalid Password");
+                    }
+                }
+            }
+        }
+
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = documentgetElementById("password").value;
+            if (username == "admin" && password == 123456) {
+                alert("Login successful!");
+            } else {
+                document.getElementById("error-message").innerHTML = "Invalid username or password";
+            }
+        }
+    </script>
+</body>
+
+</html>
